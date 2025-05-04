@@ -1,0 +1,24 @@
+# Ignore unnecessary files and folders
+*.docx
+*.xlsx
+*.pptx
+*.pdf
+*.jpg
+*.png
+*.bak
+*.sql
+*.mpk
+*.dwg
+*.mxd
+*.gdb/
+المهندس1.xlsx
+قاعدة بيانات الصيدليات في قنا باستخدام Python وMSSM - Grok.html
+قاعدة بيانات الصيدليات في قنا باستخدام Python وMSSM - Grok_files/
+task.gdb/
+T_Civil/
+word for aya.*
+Book1.xlsx
+Medicines.txt
+Pharmacies.txt
+PharmacySystem.bak
+SQLQuery*.sql
