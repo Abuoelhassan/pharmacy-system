@@ -1,0 +1,1 @@
+web: python pharmacy_gui.py

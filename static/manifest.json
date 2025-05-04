@@ -1,0 +1,21 @@
+{
+    "name": "Pharmacy System",
+    "short_name": "Pharmacy",
+    "description": "A system to manage pharmacies and medicines",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0000ff",
+    "icons": [
+        {
+            "src": "/static/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

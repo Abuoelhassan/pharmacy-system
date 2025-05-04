@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Pharmacy System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#0000ff">
+    <style>
+        body {
+            background-image: url('/static/background.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-blue-600">Admin Dashboard</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="bg-green-100 text-green-700 p-2 rounded mb-4">
+                    {% for message in messages %}
+                        {{ message }}<br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <h3 class="text-lg font-semibold mb-4">Add Pharmacy</h3>
+        <form method="POST" action="{{ url_for('add_pharmacy') }}">
+            <div class="mb-4">
+                <label class="block text-gray-700">Name:</label>
+                <input type="text" name="pharmacy_name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Address:</label>
+                <input type="text" name="pharmacy_address" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Phone:</label>
+                <input type="text" name="pharmacy_phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition">Add Pharmacy</button>
+        </form>
+
+        <h3 class="text-lg font-semibold mb-4 mt-6">Add Medicine</h3>
+        <form method="POST" action="{{ url_for('add_medicine') }}">
+            <div class="mb-4">
+                <label class="block text-gray-700">Medicine Name:</label>
+                <input type="text" name="medicine_name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Pharmacy ID:</label>
+                <input type="text" name="medicine_pharmacy_id" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Available:</label>
+                <input type="checkbox" name="medicine_available" class="h-5 w-5">
+            </div>
+            <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition">Add Medicine</button>
+        </form>
+
+        <a href="{{ url_for('logout') }}" class="block mt-4 text-center text-blue-500 hover:underline">Back to Login</a>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/service-worker.js')
+                .then((reg) => console.log('Service Worker registered', reg))
+                .catch((err) => console.log('Service Worker registration failed', err));
+        }
+    </script>
+</body>
+</html>
