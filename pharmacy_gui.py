@@ -170,4 +170,6 @@ def logout():
     return redirect(url_for('login_screen'))
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    import os
+    port = int(os.getenv("PORT", 5000))  # ياخد الـ Port من المتغير البيئي، لو مش موجود يستخدم 5000
+    app.run(debug=True, host='0.0.0.0', port=port)
